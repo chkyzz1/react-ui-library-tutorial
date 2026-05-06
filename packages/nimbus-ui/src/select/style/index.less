@@ -1,0 +1,82 @@
+@prefix: nimbus-select;
+
+.@{prefix} {
+  position: relative;
+  width: 240px;
+  color: #1f2937;
+
+  &-disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  &-selector {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 34px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    padding: 0 10px;
+    background: #fff;
+    cursor: pointer;
+    box-sizing: border-box;
+  }
+
+  &-clear,
+  &-arrow {
+    color: #6b7280;
+    background: transparent;
+    border: none;
+  }
+
+  &-dropdown {
+    position: absolute;
+    top: calc(100% + 6px);
+    left: 0;
+    right: 0;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    background: #fff;
+    box-shadow: 0 6px 20px rgb(0 0 0 / 10%);
+    z-index: 20;
+  }
+
+  &-search {
+    width: calc(100% - 16px);
+    margin: 8px;
+    box-sizing: border-box;
+    border: 1px solid #e5e7eb;
+    border-radius: 4px;
+    padding: 4px 8px;
+    outline: none;
+  }
+
+  &-options {
+    max-height: 220px;
+    overflow-y: auto;
+  }
+
+  &-option,
+  &-empty {
+    padding: 8px 10px;
+    font-size: 14px;
+  }
+
+  &-option {
+    cursor: pointer;
+
+    &:hover {
+      background: #f3f4f6;
+    }
+  }
+
+  &-option-active {
+    color: #3a7bf7;
+    background: #eef4ff;
+  }
+
+  &-empty {
+    color: #9ca3af;
+  }
+}

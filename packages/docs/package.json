@@ -1,0 +1,21 @@
+{
+  "name": "@nimbus-ui/docs",
+  "version": "1.2.0",
+  "private": true,
+  "description": "Storybook documentation site for Nimbus UI.",
+  "scripts": {
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build -o ../../storybook-static"
+  },
+  "dependencies": {
+    "nimbus-ui": "workspace:*"
+  },
+  "devDependencies": {
+    "@storybook/addon-essentials": "^8.6.14",
+    "@storybook/addon-interactions": "^8.6.14",
+    "@storybook/blocks": "^8.6.14",
+    "@storybook/react": "^8.6.14",
+    "@storybook/react-vite": "^8.6.14",
+    "storybook": "^8.6.14"
+  }
+}

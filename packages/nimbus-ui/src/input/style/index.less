@@ -1,0 +1,86 @@
+@import '../../theme/css-vars.less';
+
+@prefix: nimbus-input;
+
+.@{prefix}-wrapper {
+  display: inline-flex;
+  align-items: center;
+  width: 240px;
+  border: 1px solid var(--nimbus-color-border);
+  border-radius: var(--nimbus-radius-base);
+  background: var(--nimbus-color-bg-container);
+  padding: 0 10px;
+  box-sizing: border-box;
+  gap: 8px;
+
+  &-large {
+    height: 40px;
+  }
+
+  &-middle {
+    height: 34px;
+  }
+
+  &-small {
+    height: 28px;
+    font-size: 12px;
+  }
+
+  &:focus-within {
+    border-color: var(--nimbus-color-primary);
+  }
+}
+
+.@{prefix}-disabled {
+  background: var(--nimbus-color-bg-muted);
+  cursor: not-allowed;
+}
+
+.@{prefix} {
+  border: none;
+  outline: none;
+  flex: 1;
+  min-width: 0;
+  font-size: 14px;
+}
+
+.@{prefix}-prefix,
+.@{prefix}-suffix {
+  color: var(--nimbus-color-text-tertiary);
+}
+
+.@{prefix}-clear,
+.@{prefix}-icon-btn {
+  border: none;
+  background: transparent;
+  color: var(--nimbus-color-text-tertiary);
+  cursor: pointer;
+  padding: 0;
+}
+
+.@{prefix}-textarea {
+  width: 100%;
+  min-height: 80px;
+  border: 1px solid var(--nimbus-color-border);
+  border-radius: var(--nimbus-radius-base);
+  resize: none;
+  padding: 8px 10px;
+  box-sizing: border-box;
+  outline: none;
+
+  &:focus {
+    border-color: var(--nimbus-color-primary);
+  }
+
+  &-large {
+    font-size: 16px;
+  }
+
+  &-middle {
+    font-size: 14px;
+  }
+
+  &-small {
+    font-size: 12px;
+  }
+}

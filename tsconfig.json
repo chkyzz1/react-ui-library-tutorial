@@ -13,10 +13,11 @@
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "paths": {
-      "@zzzzw/happy-ui": ["src/index.ts"],
+      "nimbus-ui": ["packages/nimbus-ui/src/index.ts"],
+      "@nimbus-ui/utils": ["packages/utils/src/index.ts"],
       "@@/*": [".dumi/tmp/*"]
     }
   },
-  "include": ["src", "typings.d.ts"],
+  "include": ["packages", "typings.d.ts"],
   "exclude": ["node_modules", "lib", "esm", "dist", "typings", "**/__test__", "test", "tests"]
 }

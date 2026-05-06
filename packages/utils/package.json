@@ -1,0 +1,17 @@
+{
+  "name": "@nimbus-ui/utils",
+  "version": "1.2.0",
+  "description": "Shared utilities for Nimbus UI packages.",
+  "main": "lib/index.js",
+  "module": "esm/index.js",
+  "types": "lib/index.d.ts",
+  "scripts": {
+    "build": "pnpm clean && pnpm build:types && vite build",
+    "build:types": "tsc -p tsconfig.build.json",
+    "clean": "rimraf lib esm dist"
+  },
+  "files": [
+    "lib",
+    "esm"
+  ]
+}

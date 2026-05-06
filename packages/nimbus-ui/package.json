@@ -1,0 +1,32 @@
+{
+  "name": "nimbus-ui",
+  "version": "1.2.0",
+  "description": "Nimbus UI: a lightweight and extensible React component library.",
+  "main": "lib/index.cjs",
+  "module": "esm/index.js",
+  "types": "lib/index.d.ts",
+  "files": [
+    "lib",
+    "esm"
+  ],
+  "scripts": {
+    "build": "pnpm clean && pnpm build:types && vite build",
+    "build:types": "tsc -p tsconfig.build.json && cpr lib esm",
+    "clean": "rimraf lib esm dist",
+    "dev": "vite build --watch",
+    "test": "jest ../../packages/nimbus-ui/src"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7",
+    "@nimbus-ui/utils": "workspace:*"
+  },
+  "peerDependencies": {
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "author": "shizhanhong"
+}

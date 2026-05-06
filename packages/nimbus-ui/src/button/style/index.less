@@ -1,0 +1,84 @@
+@import '../../theme/css-vars.less';
+
+@prefix: nimbus-button;
+
+.@{prefix} {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-width: 72px;
+  padding: 0 16px;
+  border: 1px solid var(--nimbus-color-border);
+  border-radius: var(--nimbus-radius-base);
+  background: var(--nimbus-color-bg-container);
+  color: var(--nimbus-color-text-heading);
+  cursor: pointer;
+  transition: all 0.2s;
+
+  &:hover {
+    border-color: var(--nimbus-color-primary);
+    color: var(--nimbus-color-primary);
+  }
+
+  &-large {
+    height: 40px;
+    font-size: 16px;
+  }
+
+  &-middle {
+    height: 32px;
+    font-size: 14px;
+  }
+
+  &-small {
+    height: 26px;
+    font-size: 12px;
+    padding: 0 12px;
+  }
+
+  &-primary {
+    background: var(--nimbus-color-primary);
+    color: var(--nimbus-color-text-inverse);
+    border-color: var(--nimbus-color-primary);
+  }
+
+  &-dashed {
+    border-style: dashed;
+  }
+
+  &-text,
+  &-link {
+    border-color: transparent;
+    background: transparent;
+  }
+
+  &-link {
+    color: var(--nimbus-color-primary);
+  }
+
+  &-block {
+    display: inline-flex;
+    width: 100%;
+  }
+
+  &-disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+  }
+
+  &-spinner {
+    width: 12px;
+    height: 12px;
+    border: 2px solid currentcolor;
+    border-right-color: transparent;
+    border-radius: 50%;
+    animation: nimbus-button-spin 0.8s linear infinite;
+  }
+}
+
+@keyframes nimbus-button-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

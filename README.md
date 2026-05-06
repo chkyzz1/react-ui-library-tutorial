@@ -1,33 +1,62 @@
-## React 组件库搭建指南
+# Nimbus UI
 
-- [React 组件库搭建指南（一）：项目初始化](https://github.com/worldzhao/blog/issues/3)
-- [React 组件库搭建指南（二）：开发调试](https://github.com/worldzhao/blog/issues/4)
-- [React 组件库搭建指南（三）：编译打包](https://github.com/worldzhao/blog/issues/5)
-- [React 组件库搭建指南（四）：单元测试](https://github.com/worldzhao/blog/issues/6)
-- [React 组件库搭建指南（五）：标准化发布流程](https://github.com/worldzhao/blog/issues/7)
+Nimbus UI is a lightweight React component library built with TypeScript. It contains common business UI components such as Button, Input, Select, Modal, Table, and Upload.
 
-[🚀 在线预览](https://worldzhao.github.io/react-ui-library-tutorial)
+## Tech Stack
 
-🚆 本地预览
+- React + TypeScript
+- Vite library build
+- pnpm workspace monorepo
+- Storybook documentation site
+- Less
+- Jest + React Testing Library
+- ESLint + Prettier + Husky + lint-staged
 
-```bash
-git clone git@github.com:worldzhao/react-ui-library-tutorial.git
-cd react-ui-library-tutorial
-pnpm install
-pnpm start
+## Monorepo Structure
+
+```text
+.
+├── packages/
+│   ├── nimbus-ui/      # component library package
+│   ├── utils/          # shared utility package
+│   └── docs/           # Storybook documentation package
+├── docs/               # dumi/notes pages kept for project notes
+├── scripts/            # component scaffolding scripts
+└── templates/          # plop component templates
 ```
 
-按顺序执行完命令后，即可在 localhost:3000 端口看到以下内容：
+## Local Development
 
-![preview](https://raw.githubusercontent.com/worldzhao/blog/master/images/rc-lib-v1-1.jpg)
+```bash
+pnpm install
+pnpm dev
+```
 
-## 概览
+## Common Commands
 
-本系列文章主要包含以下内容：
+- `pnpm dev`: start Storybook documentation site
+- `pnpm build`: build utils and component library packages
+- `pnpm build:site`: build the Storybook static site
+- `pnpm test`: run unit tests
+- `pnpm test:coverage`: run unit tests with coverage
+- `pnpm new`: create a new component from templates
+- `pnpm scan:tokens`: scan component styles and suggest design token replacements
 
-- 项目初始化: 组件库前期开发准备工作。`eslint`/`commit lint`/`typescript`等等；
-- 开发阶段: 使用 [dumi](https://d.umijs.org/zh-CN) 进行开发调试以及文档编写；
-- 打包阶段: 输出~~`umd`~~/`cjs`/`esm`产物并支持按需加载；
-- 组件测试: 使用`@testing-library/react`及其相关生态进行组件测试；
-- 发布 npm: 编写脚本完成发布或直接使用 [np](https://www.npmjs.com/package/np) 发布；
-- 部署文档站点: 使用 Github Pages 以及 Github Actions 完成文档站点自动部署。
+## Theme Tokens
+
+Nimbus UI exposes theme variables through `packages/nimbus-ui/src/theme/css-vars.less`.
+Components consume semantic CSS variables such as `--nimbus-color-primary` instead of hardcoded colors, so brand themes and dark mode can be implemented by overriding the same variables.
+
+## Technical Notes
+
+- [MCP-based component governance design](./docs/mcp-governance.md)
+
+## Package Output
+
+`packages/nimbus-ui` builds both module formats:
+
+- `lib/index.cjs`: CommonJS entry
+- `esm/index.js`: ES module entry
+- `lib/index.d.ts`: TypeScript declarations
+
+The package supports full imports from `nimbus-ui` and can be combined with `babel-plugin-import` for style-level on-demand usage.

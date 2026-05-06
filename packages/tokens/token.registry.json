@@ -1,0 +1,175 @@
+{
+  "color": [
+    {
+      "name": "color.primary",
+      "cssVariable": "--nimbus-color-primary",
+      "lessVariable": "@nimbus-color-primary",
+      "value": "#3a7bf7",
+      "description": "Primary brand color for key actions and active states."
+    },
+    {
+      "name": "color.primary.hover",
+      "cssVariable": "--nimbus-color-primary-hover",
+      "lessVariable": "@nimbus-color-primary-hover",
+      "value": "#2563eb",
+      "description": "Hover color for primary interactive elements."
+    },
+    {
+      "name": "color.success",
+      "cssVariable": "--nimbus-color-success",
+      "lessVariable": "@nimbus-color-success",
+      "value": "#36b37e",
+      "description": "Success semantic color."
+    },
+    {
+      "name": "color.error",
+      "cssVariable": "--nimbus-color-error",
+      "lessVariable": "@nimbus-color-error",
+      "value": "#e5484d",
+      "description": "Error semantic color."
+    },
+    {
+      "name": "color.warning",
+      "cssVariable": "--nimbus-color-warning",
+      "lessVariable": "@nimbus-color-warning",
+      "value": "#e8943a",
+      "description": "Warning semantic color."
+    },
+    {
+      "name": "color.text.heading",
+      "cssVariable": "--nimbus-color-text-heading",
+      "lessVariable": "@nimbus-color-text-heading",
+      "value": "#1f2937",
+      "description": "Heading and strong text color."
+    },
+    {
+      "name": "color.text.primary",
+      "cssVariable": "--nimbus-color-text-primary",
+      "lessVariable": "@nimbus-color-text-primary",
+      "value": "#111827",
+      "description": "Primary text color."
+    },
+    {
+      "name": "color.text.secondary",
+      "cssVariable": "--nimbus-color-text-secondary",
+      "lessVariable": "@nimbus-color-text-secondary",
+      "value": "#374151",
+      "description": "Secondary text color."
+    },
+    {
+      "name": "color.text.description",
+      "cssVariable": "--nimbus-color-text-description",
+      "lessVariable": "@nimbus-color-text-description",
+      "value": "#4b5563",
+      "description": "Description text color."
+    },
+    {
+      "name": "color.text.tertiary",
+      "cssVariable": "--nimbus-color-text-tertiary",
+      "lessVariable": "@nimbus-color-text-tertiary",
+      "value": "#6b7280",
+      "description": "Tertiary and helper text color."
+    },
+    {
+      "name": "color.text.disabled",
+      "cssVariable": "--nimbus-color-text-disabled",
+      "lessVariable": "@nimbus-color-text-disabled",
+      "value": "#9ca3af",
+      "description": "Disabled or empty state text color."
+    },
+    {
+      "name": "color.text.inverse",
+      "cssVariable": "--nimbus-color-text-inverse",
+      "lessVariable": "@nimbus-color-text-inverse",
+      "value": "#ffffff",
+      "aliases": ["#fff"],
+      "description": "Inverse text color on primary or dark backgrounds."
+    },
+    {
+      "name": "color.border",
+      "cssVariable": "--nimbus-color-border",
+      "lessVariable": "@nimbus-color-border",
+      "value": "#d1d5db",
+      "description": "Default border color."
+    },
+    {
+      "name": "color.border.light",
+      "cssVariable": "--nimbus-color-border-light",
+      "lessVariable": "@nimbus-color-border-light",
+      "value": "#e5e7eb",
+      "description": "Light border and divider color."
+    },
+    {
+      "name": "color.border.info",
+      "cssVariable": "--nimbus-color-border-info",
+      "lessVariable": "@nimbus-color-border-info",
+      "value": "#dbe7ff",
+      "description": "Info alert border color."
+    },
+    {
+      "name": "color.bg.container",
+      "cssVariable": "--nimbus-color-bg-container",
+      "lessVariable": "@nimbus-color-bg-container",
+      "value": "#ffffff",
+      "aliases": ["#fff"],
+      "description": "Default component container background."
+    },
+    {
+      "name": "color.bg.info",
+      "cssVariable": "--nimbus-color-bg-info",
+      "lessVariable": "@nimbus-color-bg-info",
+      "value": "#f5f8ff",
+      "description": "Info alert background color."
+    },
+    {
+      "name": "color.bg.subtle",
+      "cssVariable": "--nimbus-color-bg-subtle",
+      "lessVariable": "@nimbus-color-bg-subtle",
+      "value": "#f9fafb",
+      "description": "Subtle table header or page background."
+    },
+    {
+      "name": "color.bg.muted",
+      "cssVariable": "--nimbus-color-bg-muted",
+      "lessVariable": "@nimbus-color-bg-muted",
+      "value": "#f3f4f6",
+      "description": "Muted disabled background."
+    },
+    {
+      "name": "color.bg.hover",
+      "cssVariable": "--nimbus-color-bg-hover",
+      "lessVariable": "@nimbus-color-bg-hover",
+      "value": "#fafafa",
+      "description": "Hover background for light controls."
+    },
+    {
+      "name": "color.bg.primary.light",
+      "cssVariable": "--nimbus-color-bg-primary-light",
+      "lessVariable": "@nimbus-color-bg-primary-light",
+      "value": "#eef4ff",
+      "description": "Light primary selected background."
+    },
+    {
+      "name": "color.mask",
+      "cssVariable": "--nimbus-color-mask",
+      "lessVariable": "@nimbus-color-mask",
+      "value": "rgb(0 0 0 / 45%)",
+      "description": "Modal mask background."
+    },
+    {
+      "name": "color.shadow",
+      "cssVariable": "--nimbus-color-shadow",
+      "lessVariable": "@nimbus-color-shadow",
+      "value": "rgb(0 0 0 / 20%)",
+      "aliases": ["rgb(0 0 0 / 10%)", "rgb(255 255 255 / 65%)"],
+      "description": "Shadow or translucent overlay color."
+    },
+    {
+      "name": "color.danger",
+      "cssVariable": "--nimbus-color-danger",
+      "lessVariable": "@nimbus-color-danger",
+      "value": "#dc2626",
+      "description": "Danger action color."
+    }
+  ]
+}

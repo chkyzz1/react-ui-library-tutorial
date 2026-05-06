@@ -12,47 +12,47 @@ export default function (plop: NodePlopAPI) {
     actions: [
       {
         type: 'add',
-        path: path.resolve(__dirname, '../src/{{kebabCase name}}/index.ts'),
+        path: path.resolve(__dirname, '../packages/nimbus-ui/src/{{kebabCase name}}/index.ts'),
         templateFile: path.resolve(__dirname, '../templates/component/index.hbs'),
       },
       {
         type: 'add',
-        path: path.resolve(__dirname, '../src/{{kebabCase name}}/{{kebabCase name}}.tsx'),
+        path: path.resolve(__dirname, '../packages/nimbus-ui/src/{{kebabCase name}}/{{kebabCase name}}.tsx'),
         templateFile: path.resolve(__dirname, '../templates/component/comp.hbs'),
       },
       {
         type: 'add',
-        path: path.resolve(__dirname, '../src/{{kebabCase name}}/style/index.less'),
+        path: path.resolve(__dirname, '../packages/nimbus-ui/src/{{kebabCase name}}/style/index.less'),
         templateFile: path.resolve(__dirname, '../templates/component/style/style.hbs'),
       },
       {
         type: 'add',
-        path: path.resolve(__dirname, '../src/{{kebabCase name}}/style/index.ts'),
+        path: path.resolve(__dirname, '../packages/nimbus-ui/src/{{kebabCase name}}/style/index.ts'),
         templateFile: path.resolve(__dirname, '../templates/component/style/index.hbs'),
       },
       {
         type: 'add',
-        path: path.resolve(__dirname, '../src/{{kebabCase name}}/index.md'),
+        path: path.resolve(__dirname, '../packages/nimbus-ui/src/{{kebabCase name}}/index.md'),
         templateFile: path.resolve(__dirname, '../templates/component/doc.hbs'),
       },
       {
         type: 'add',
-        path: path.resolve(__dirname, '../src/{{kebabCase name}}/interface.ts'),
+        path: path.resolve(__dirname, '../packages/nimbus-ui/src/{{kebabCase name}}/interface.ts'),
         templateFile: path.resolve(__dirname, '../templates/component/interface.hbs'),
       },
       {
         type: 'add',
-        path: path.resolve(__dirname, '../src/{{kebabCase name}}/demo/basic.tsx'),
+        path: path.resolve(__dirname, '../packages/nimbus-ui/src/{{kebabCase name}}/demo/basic.tsx'),
         templateFile: path.resolve(__dirname, '../templates/component/demo/basic.hbs'),
       },
       {
         type: 'add',
-        path: path.resolve(__dirname, '../src/{{kebabCase name}}/__tests__/index.test.tsx'),
+        path: path.resolve(__dirname, '../packages/nimbus-ui/src/{{kebabCase name}}/__tests__/index.test.tsx'),
         templateFile: path.resolve(__dirname, '../templates/component/__tests__/index.test.hbs'),
       },
       {
         type: 'append',
-        path: path.resolve(__dirname, '../src/index.ts'),
+        path: path.resolve(__dirname, '../packages/nimbus-ui/src/index.ts'),
         pattern: '/* PLOP_INJECT_EXPORT */',
         template: "export { default as {{pascalCase name}} } from './{{kebabCase name}}';",
       },

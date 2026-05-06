@@ -1,0 +1,10 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": "../../",
+    "rootDir": "src",
+    "declarationDir": "lib"
+  },
+  "include": ["src", "../../typings.d.ts"],
+  "exclude": ["node_modules", "lib", "esm", "dist", "**/__tests__/**", "**/demo/**"]
+}

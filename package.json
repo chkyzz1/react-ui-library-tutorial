@@ -1,40 +1,18 @@
 {
-  "name": "@zzzzw/happy-ui",
+  "name": "nimbus-ui-monorepo",
   "version": "1.2.0",
-  "description": "A React UI Library.",
-  "keywords": [],
-  "homepage": "https://github.com/worldzhao/react-ui-library-tutorial#readme",
-  "bugs": {
-    "url": "https://github.com/worldzhao/react-ui-library-tutorial/issues"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/worldzhao/react-ui-library-tutorial.git"
-  },
-  "license": "ISC",
-  "main": "lib/index.js",
-  "module": "esm/index.js",
-  "typings": "lib/index.d.ts",
-  "files": [
-    "lib",
-    "esm"
-  ],
+  "private": true,
+  "description": "Nimbus UI monorepo.",
   "scripts": {
-    "build": "npm run clean && npm run build:types && gulp",
-    "build:site": "dumi build",
-    "build:types": "tsc -p tsconfig.build.json && cpr lib esm",
-    "clean": "rimraf lib esm dist .dumi doc-site",
+    "build": "pnpm --filter @nimbus-ui/utils build && pnpm --filter nimbus-ui build",
+    "build:site": "pnpm --filter @nimbus-ui/docs build-storybook",
     "commit": "cz",
-    "deploy:site": "npm run build:site && gh-pages -d doc-site",
-    "dev": "npm start",
-    "preinstall": "npx only-allow pnpm",
+    "dev": "pnpm --filter @nimbus-ui/docs storybook",
+    "lint": "eslint packages --ext .ts,.tsx",
     "new": "plop --plopfile ./scripts/plopfile.ts",
-    "postnew": "prettier --write src/**/*{ts,tsx} --loglevel silent",
-    "prepare": "husky install && dumi setup",
-    "prepublishOnly": "npm run build",
-    "preview": "cross-env PREVIEW=1 npm run build:site && cross-env PREVIEW=1 dumi preview",
-    "release": "np --no-cleanup --no-tests --any-branch",
-    "start": "dumi dev",
+    "postnew": "prettier --write packages/nimbus-ui/src/**/*{ts,tsx} --loglevel silent",
+    "prepare": "husky install",
+    "scan:tokens": "pnpm --filter @nimbus-ui/mcp-server scan:tokens",
     "test": "jest",
     "test:coverage": "jest --coverage",
     "test:update": "jest --updateSnapshot",
@@ -58,9 +36,6 @@
       "path": "cz-conventional-changelog"
     }
   },
-  "dependencies": {
-    "@babel/runtime": "^7"
-  },
   "devDependencies": {
     "@babel/core": "^7.7.7",
     "@babel/plugin-transform-runtime": "^7.7.6",
@@ -69,6 +44,11 @@
     "@babel/preset-typescript": "^7.7.7",
     "@commitlint/cli": "^17.3.0",
     "@commitlint/config-conventional": "^17.3.0",
+    "@storybook/addon-essentials": "^8.6.14",
+    "@storybook/addon-interactions": "^8.6.14",
+    "@storybook/blocks": "^8.6.14",
+    "@storybook/react": "^8.6.14",
+    "@storybook/react-vite": "^8.6.14",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^12.1.4",
     "@testing-library/user-event": "^13.5.0",
@@ -78,6 +58,7 @@
     "@types/react": "^16.8.0",
     "@types/react-dom": "^16.8.0",
     "@umijs/fabric": "^3",
+    "@vitejs/plugin-react": "^4.2.1",
     "babel-plugin-import": "^1.13.3",
     "commitizen": "^4.2.5",
     "core-js": "^3.26.1",
@@ -107,22 +88,12 @@
     "react-dom": "^16.8.0",
     "rimraf": "^3.0.0",
     "snapshot-diff": "^0.6.1",
+    "storybook": "^8.6.14",
     "through2": "^3.0.1",
     "ts-jest": "^24.2.0",
     "ts-node": "^10.9.1",
-    "typescript": "^4.9.3"
+    "typescript": "^4.9.3",
+    "vite": "^5.4.11"
   },
-  "peerDependencies": {
-    "react": ">=16.8.0",
-    "react-dom": ">=16.8.0"
-  },
-  "packageManager": "pnpm@8.6.5",
-  "publishConfig": {
-    "access": "public",
-    "registry": "https://registry.npmjs.org/"
-  },
-  "authors": {
-    "name": "worldzhao",
-    "email": "1007326924@qq.com"
-  }
+  "packageManager": "pnpm@8.6.5"
 }

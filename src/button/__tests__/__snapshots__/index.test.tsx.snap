@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Button /> should render default button 1`] = `
+<div>
+  <button
+    class="nimbus-button nimbus-button-default nimbus-button-middle"
+    type="button"
+  >
+    <span>
+      Button
+    </span>
+  </button>
+</div>
+`;

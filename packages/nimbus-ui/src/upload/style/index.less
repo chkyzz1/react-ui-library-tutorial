@@ -1,0 +1,75 @@
+@prefix: nimbus-upload;
+
+.@{prefix} {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 34px;
+  padding: 0 14px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  background: #fff;
+  cursor: pointer;
+  color: #111827;
+
+  &-drag {
+    width: 100%;
+    min-height: 120px;
+    border-style: dashed;
+    background: #fafafa;
+  }
+
+  &-dragover {
+    border-color: #3a7bf7;
+    color: #3a7bf7;
+    background: #eef4ff;
+  }
+
+  &-disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+  }
+
+  &-input {
+    display: none;
+  }
+
+  &-list {
+    margin: 10px 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  &-list-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 10px;
+    border: 1px solid #e5e7eb;
+    border-radius: 6px;
+    margin-bottom: 8px;
+    font-size: 13px;
+  }
+
+  &-file-name {
+    flex: 1;
+    cursor: pointer;
+    color: #111827;
+  }
+
+  &-image-name {
+    color: #2563eb;
+  }
+
+  &-status,
+  &-percent {
+    color: #6b7280;
+  }
+
+  &-remove {
+    border: none;
+    background: transparent;
+    color: #dc2626;
+    cursor: pointer;
+  }
+}

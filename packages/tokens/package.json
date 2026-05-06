@@ -1,0 +1,9 @@
+{
+  "name": "@nimbus-ui/tokens",
+  "version": "1.2.0",
+  "description": "Design token registry for Nimbus UI.",
+  "main": "token.registry.json",
+  "files": [
+    "token.registry.json"
+  ]
+}
