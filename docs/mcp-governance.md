@@ -302,7 +302,7 @@ theme/
 
 - `packages/nimbus-ui/src/theme/css-vars.less` 定义 light/dark 两套 CSS Variables。
 - `packages/nimbus-ui/src/theme/index.ts` 提供 `setNimbusTheme` 方法。
-- `Button` 和 `Input` 已经从硬编码颜色迁移为消费 `var(--nimbus-*)`。
+- `Button`、`Input`、`Select`、`Table`、`Upload`、`Alert` 和 `Modal` 已经从硬编码颜色迁移为消费 `var(--nimbus-*)`。
 - Storybook 中新增 `Theme/Tokens` 示例，用于对比 light/dark 下的组件表现。
 
 ### Step 2：补 Token Registry
@@ -348,6 +348,18 @@ packages/
 pnpm scan:tokens
 ```
 
+组件结构和完整性扫描：
+
+```bash
+pnpm scan:components
+```
+
+总治理报告：
+
+```bash
+pnpm scan:governance
+```
+
 也可以输出 JSON，方便后续接入 Agent 或 CI：
 
 ```bash
@@ -359,6 +371,20 @@ node packages/mcp-server/src/scanTokens.js --json --output token-report.json
 ```bash
 node packages/mcp-server/src/scanTokens.js --fail-on-unmapped
 ```
+
+当前项目已新增 GitHub Actions 治理流水线：
+
+```text
+.github/workflows/governance.yml
+```
+
+该流水线会在 push 和 pull_request 阶段执行：
+
+- `pnpm scan:components -- --fail-on-missing --fail-on-naming`
+- `pnpm scan:tokens -- --fail-on-unmapped`
+- `pnpm scan:governance -- --fail-on-regression --output governance-report.json`
+
+并将总治理报告作为 artifact 上传。
 
 ### Step 4：接入 CI
 

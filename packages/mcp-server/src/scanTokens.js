@@ -39,7 +39,9 @@ function chooseToken(value, property, tokenMap) {
   if (property.includes('border')) return findToken(candidates, 'border') || candidates[0];
   if (property.includes('shadow')) return findToken(candidates, 'shadow') || candidates[0];
   if (property === 'color') return findToken(candidates, 'text') || candidates[0];
-  if (property.includes('background')) return findToken(candidates, 'bg') || findToken(candidates, 'mask') || candidates[0];
+  if (property.includes('background')) {
+    return findToken(candidates, 'bg') || findToken(candidates, 'overlay') || findToken(candidates, 'mask') || candidates[0];
+  }
 
   return candidates[0];
 }
@@ -154,21 +156,31 @@ function printReport(report) {
   }
 }
 
-const report = createReport();
-const outputIndex = process.argv.indexOf('--output');
-const outputPath = outputIndex === -1 ? null : process.argv[outputIndex + 1];
-const serialized = JSON.stringify(report, null, 2);
+function runCli() {
+  const report = createReport();
+  const outputIndex = process.argv.indexOf('--output');
+  const outputPath = outputIndex === -1 ? null : process.argv[outputIndex + 1];
+  const serialized = JSON.stringify(report, null, 2);
 
-if (outputPath) {
-  fs.writeFileSync(path.resolve(process.cwd(), outputPath), `${serialized}\n`);
+  if (outputPath) {
+    fs.writeFileSync(path.resolve(process.cwd(), outputPath), `${serialized}\n`);
+  }
+
+  if (process.argv.includes('--json')) {
+    console.log(serialized);
+  } else {
+    printReport(report);
+  }
+
+  if (process.argv.includes('--fail-on-unmapped') && report.summary.unmapped > 0) {
+    process.exitCode = 1;
+  }
 }
 
-if (process.argv.includes('--json')) {
-  console.log(serialized);
-} else {
-  printReport(report);
+if (require.main === module) {
+  runCli();
 }
 
-if (process.argv.includes('--fail-on-unmapped') && report.summary.unmapped > 0) {
-  process.exitCode = 1;
-}
+module.exports = {
+  createReport,
+};

@@ -1,9 +1,11 @@
+@import '../../theme/css-vars.less';
+
 @prefix: nimbus-select;
 
 .@{prefix} {
   position: relative;
   width: 240px;
-  color: #1f2937;
+  color: var(--nimbus-color-text-heading);
 
   &-disabled {
     opacity: 0.6;
@@ -15,17 +17,17 @@
     align-items: center;
     justify-content: space-between;
     min-height: 34px;
-    border: 1px solid #d1d5db;
-    border-radius: 6px;
+    border: 1px solid var(--nimbus-color-border);
+    border-radius: var(--nimbus-radius-base);
     padding: 0 10px;
-    background: #fff;
+    background: var(--nimbus-color-bg-container);
     cursor: pointer;
     box-sizing: border-box;
   }
 
   &-clear,
   &-arrow {
-    color: #6b7280;
+    color: var(--nimbus-color-text-tertiary);
     background: transparent;
     border: none;
   }
@@ -35,10 +37,10 @@
     top: calc(100% + 6px);
     left: 0;
     right: 0;
-    border: 1px solid #d1d5db;
-    border-radius: 6px;
-    background: #fff;
-    box-shadow: 0 6px 20px rgb(0 0 0 / 10%);
+    border: 1px solid var(--nimbus-color-border);
+    border-radius: var(--nimbus-radius-base);
+    background: var(--nimbus-color-bg-container);
+    box-shadow: 0 6px 20px var(--nimbus-color-shadow);
     z-index: 20;
   }
 
@@ -46,7 +48,7 @@
     width: calc(100% - 16px);
     margin: 8px;
     box-sizing: border-box;
-    border: 1px solid #e5e7eb;
+    border: 1px solid var(--nimbus-color-border-light);
     border-radius: 4px;
     padding: 4px 8px;
     outline: none;
@@ -67,16 +69,16 @@
     cursor: pointer;
 
     &:hover {
-      background: #f3f4f6;
+      background: var(--nimbus-color-bg-muted);
     }
   }
 
   &-option-active {
-    color: #3a7bf7;
-    background: #eef4ff;
+    color: var(--nimbus-color-primary);
+    background: var(--nimbus-color-bg-primary-light);
   }
 
   &-empty {
-    color: #9ca3af;
+    color: var(--nimbus-color-text-disabled);
   }
 }

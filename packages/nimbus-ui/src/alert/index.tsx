@@ -22,10 +22,10 @@ export type KindMap = Record<Required<AlertProps>['kind'], string>;
 const prefixCls = 'nimbus-alert';
 
 const kinds: KindMap = {
-  info: '#3A7BF7',
-  success: '#36B37E',
-  error: '#E5484D',
-  warning: '#E8943A',
+  info: 'var(--nimbus-color-primary)',
+  success: 'var(--nimbus-color-success)',
+  error: 'var(--nimbus-color-error)',
+  warning: 'var(--nimbus-color-warning)',
 };
 
 const Alert: React.FC<AlertProps> = ({ children, kind = 'info', title, closable = false, ...rest }) => {

@@ -1,0 +1,42 @@
+name: governance
+
+on:
+  pull_request:
+  push:
+    branches:
+      - master
+
+jobs:
+  component-governance:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 8.6.5
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile=false
+
+      - name: Scan component structure
+        run: pnpm scan:components -- --fail-on-missing --fail-on-naming
+
+      - name: Scan design tokens
+        run: pnpm scan:tokens -- --fail-on-unmapped
+
+      - name: Generate governance report
+        run: pnpm scan:governance -- --fail-on-regression --output governance-report.json
+
+      - name: Upload governance report
+        uses: actions/upload-artifact@v4
+        with:
+          name: governance-report
+          path: governance-report.json

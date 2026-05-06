@@ -161,8 +161,15 @@
       "cssVariable": "--nimbus-color-shadow",
       "lessVariable": "@nimbus-color-shadow",
       "value": "rgb(0 0 0 / 20%)",
-      "aliases": ["rgb(0 0 0 / 10%)", "rgb(255 255 255 / 65%)"],
+      "aliases": ["rgb(0 0 0 / 10%)"],
       "description": "Shadow or translucent overlay color."
+    },
+    {
+      "name": "color.overlay.light",
+      "cssVariable": "--nimbus-color-overlay-light",
+      "lessVariable": "@nimbus-color-overlay-light",
+      "value": "rgb(255 255 255 / 65%)",
+      "description": "Light overlay background for loading states."
     },
     {
       "name": "color.danger",

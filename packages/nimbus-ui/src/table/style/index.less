@@ -1,3 +1,5 @@
+@import '../../theme/css-vars.less';
+
 @prefix: nimbus-table;
 
 .@{prefix} {
@@ -6,21 +8,21 @@
   &-inner {
     width: 100%;
     border-collapse: collapse;
-    background: #fff;
+    background: var(--nimbus-color-bg-container);
   }
 
   th,
   td {
     text-align: left;
     padding: 10px 12px;
-    border-bottom: 1px solid #e5e7eb;
+    border-bottom: 1px solid var(--nimbus-color-border-light);
     font-size: 14px;
   }
 
   th {
-    background: #f9fafb;
+    background: var(--nimbus-color-bg-subtle);
     font-weight: 600;
-    color: #374151;
+    color: var(--nimbus-color-text-secondary);
   }
 
   &-sortable {
@@ -29,18 +31,18 @@
 
   &-sort-mark {
     margin-left: 6px;
-    color: #9ca3af;
+    color: var(--nimbus-color-text-disabled);
     font-size: 12px;
   }
 
   &-bordered {
-    border: 1px solid #e5e7eb;
+    border: 1px solid var(--nimbus-color-border-light);
     border-radius: 8px;
     overflow: hidden;
   }
 
   &-empty {
-    color: #9ca3af;
+    color: var(--nimbus-color-text-disabled);
     text-align: center;
   }
 
@@ -50,7 +52,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgb(255 255 255 / 65%);
+    background: var(--nimbus-color-overlay-light);
     font-weight: 600;
   }
 }

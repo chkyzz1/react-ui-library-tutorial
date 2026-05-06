@@ -36,7 +36,7 @@ exports[`<Alert /> should render default 1`] = `
 <div>
   <div
     class="nimbus-alert"
-    style="border-left-color: #3A7BF7;"
+    style="border-left-color: var(--nimbus-color-primary);"
   >
     <div
       class="nimbus-alert-content"

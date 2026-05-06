@@ -1,3 +1,5 @@
+@import '../../theme/css-vars.less';
+
 @prefix: nimbus-upload;
 
 .@{prefix} {
@@ -6,23 +8,23 @@
   justify-content: center;
   min-height: 34px;
   padding: 0 14px;
-  border: 1px solid #d1d5db;
-  border-radius: 6px;
-  background: #fff;
+  border: 1px solid var(--nimbus-color-border);
+  border-radius: var(--nimbus-radius-base);
+  background: var(--nimbus-color-bg-container);
   cursor: pointer;
-  color: #111827;
+  color: var(--nimbus-color-text-primary);
 
   &-drag {
     width: 100%;
     min-height: 120px;
     border-style: dashed;
-    background: #fafafa;
+    background: var(--nimbus-color-bg-hover);
   }
 
   &-dragover {
-    border-color: #3a7bf7;
-    color: #3a7bf7;
-    background: #eef4ff;
+    border-color: var(--nimbus-color-primary);
+    color: var(--nimbus-color-primary);
+    background: var(--nimbus-color-bg-primary-light);
   }
 
   &-disabled {
@@ -45,8 +47,8 @@
     align-items: center;
     gap: 8px;
     padding: 8px 10px;
-    border: 1px solid #e5e7eb;
-    border-radius: 6px;
+    border: 1px solid var(--nimbus-color-border-light);
+    border-radius: var(--nimbus-radius-base);
     margin-bottom: 8px;
     font-size: 13px;
   }
@@ -54,22 +56,22 @@
   &-file-name {
     flex: 1;
     cursor: pointer;
-    color: #111827;
+    color: var(--nimbus-color-text-primary);
   }
 
   &-image-name {
-    color: #2563eb;
+    color: var(--nimbus-color-primary-hover);
   }
 
   &-status,
   &-percent {
-    color: #6b7280;
+    color: var(--nimbus-color-text-tertiary);
   }
 
   &-remove {
     border: none;
     background: transparent;
-    color: #dc2626;
+    color: var(--nimbus-color-danger);
     cursor: pointer;
   }
 }
