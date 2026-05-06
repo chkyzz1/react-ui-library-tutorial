@@ -74,27 +74,37 @@ function printReport(report) {
   }
 }
 
-const report = createReport();
-const outputIndex = process.argv.indexOf('--output');
-const outputPath = outputIndex === -1 ? null : process.argv[outputIndex + 1];
-const serialized = JSON.stringify(report, null, 2);
+function runCli() {
+  const report = createReport();
+  const outputIndex = process.argv.indexOf('--output');
+  const outputPath = outputIndex === -1 ? null : process.argv[outputIndex + 1];
+  const serialized = JSON.stringify(report, null, 2);
 
-if (outputPath) {
-  fs.writeFileSync(path.resolve(process.cwd(), outputPath), `${serialized}\n`);
+  if (outputPath) {
+    fs.writeFileSync(path.resolve(process.cwd(), outputPath), `${serialized}\n`);
+  }
+
+  if (process.argv.includes('--json')) {
+    console.log(serialized);
+  } else {
+    printReport(report);
+  }
+
+  if (process.argv.includes('--fail-on-regression')) {
+    const failed =
+      report.summary.unmappedColors > 0 ||
+      report.summary.missingStories.length > 0 ||
+      report.summary.missingTests.length > 0 ||
+      report.summary.namingIssues > 0;
+
+    if (failed) process.exitCode = 1;
+  }
 }
 
-if (process.argv.includes('--json')) {
-  console.log(serialized);
-} else {
-  printReport(report);
+if (require.main === module) {
+  runCli();
 }
 
-if (process.argv.includes('--fail-on-regression')) {
-  const failed =
-    report.summary.unmappedColors > 0 ||
-    report.summary.missingStories.length > 0 ||
-    report.summary.missingTests.length > 0 ||
-    report.summary.namingIssues > 0;
-
-  if (failed) process.exitCode = 1;
-}
+module.exports = {
+  createReport,
+};

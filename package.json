@@ -12,6 +12,7 @@
     "new": "plop --plopfile ./scripts/plopfile.ts",
     "postnew": "prettier --write packages/nimbus-ui/src/**/*{ts,tsx} --loglevel silent",
     "prepare": "husky install",
+    "mcp:server": "pnpm --filter @nimbus-ui/mcp-server start",
     "scan:components": "pnpm --filter @nimbus-ui/mcp-server scan:components",
     "scan:governance": "pnpm --filter @nimbus-ui/mcp-server scan:governance",
     "scan:tokens": "pnpm --filter @nimbus-ui/mcp-server scan:tokens",

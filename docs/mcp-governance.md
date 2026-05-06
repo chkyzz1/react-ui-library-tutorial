@@ -332,15 +332,33 @@ packages/mcp-server/
 
 第一版只做只读分析，不自动改代码，降低风险。
 
-当前项目已经落地第一版 Token 扫描 MVP：
+当前项目已经落地第一版 MCP Server 与治理工具：
 
 ```text
 packages/
 ├── tokens/
 │   └── token.registry.json
 └── mcp-server/
-    └── src/scanTokens.js
+    └── src/
+        ├── index.js
+        ├── analyzeComponents.js
+        ├── scanTokens.js
+        └── scanGovernance.js
 ```
+
+启动 MCP stdio 服务：
+
+```bash
+pnpm mcp:server
+```
+
+已暴露的 MCP tools：
+
+| Tool | 说明 |
+| --- | --- |
+| `scan_components` | 分析组件 Props、事件、测试、Storybook、demo、文档完整性 |
+| `scan_tokens` | 扫描组件样式中的硬编码颜色和 Token 映射 |
+| `scan_governance` | 生成组件完整性 + Token 治理 + 主题迁移总报告 |
 
 运行：
 
@@ -370,6 +388,20 @@ node packages/mcp-server/src/scanTokens.js --json --output token-report.json
 
 ```bash
 node packages/mcp-server/src/scanTokens.js --fail-on-unmapped
+```
+
+如果希望自动修复可映射的硬编码颜色：
+
+```bash
+pnpm scan:tokens -- --fix
+```
+
+MCP tool `scan_tokens` 也支持传入：
+
+```json
+{
+  "fix": true
+}
 ```
 
 当前项目已新增 GitHub Actions 治理流水线：

@@ -40,9 +40,11 @@ pnpm dev
 - `pnpm test`: run unit tests
 - `pnpm test:coverage`: run unit tests with coverage
 - `pnpm new`: create a new component from templates
+- `pnpm mcp:server`: start the MCP stdio governance server
 - `pnpm scan:components`: scan component API, stories, tests, demos, and docs
 - `pnpm scan:governance`: generate the combined component and token governance report
 - `pnpm scan:tokens`: scan component styles and suggest design token replacements
+- `pnpm scan:tokens -- --fix`: safely replace mapped hardcoded colors with CSS variables
 
 ## Theme Tokens
 

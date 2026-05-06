@@ -3,7 +3,9 @@
   "version": "1.2.0",
   "private": true,
   "description": "MCP-oriented governance tools for Nimbus UI.",
+  "main": "src/index.js",
   "scripts": {
+    "start": "node src/index.js",
     "scan:governance": "node src/scanGovernance.js",
     "scan:components": "node src/analyzeComponents.js",
     "scan:tokens": "node src/scanTokens.js"

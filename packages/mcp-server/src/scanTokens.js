@@ -89,6 +89,34 @@ function analyzeFile(file, tokenMap) {
   return findings;
 }
 
+function fixFile(file, tokenMap) {
+  const content = fs.readFileSync(file, 'utf8');
+  const lines = content.split(/\r?\n/);
+  let changed = false;
+  let replacements = 0;
+
+  const nextLines = lines.map(line =>
+    line.replace(COLOR_PATTERN, raw => {
+      const property = getCssProperty(line);
+      const token = chooseToken(normalizeHex(raw), property, tokenMap);
+      if (!token) return raw;
+
+      changed = true;
+      replacements += 1;
+      return `var(${token.cssVariable})`;
+    }),
+  );
+
+  if (changed) {
+    fs.writeFileSync(file, nextLines.join('\n'));
+  }
+
+  return {
+    changed,
+    replacements,
+  };
+}
+
 function getCssProperty(line) {
   const match = line.match(/^\s*([\w-]+)\s*:/);
   return match ? match[1] : 'unknown';
@@ -130,6 +158,26 @@ function createReport() {
   };
 }
 
+function fixAll() {
+  const { byValue } = loadRegistry();
+  const files = getStyleFiles();
+  const filesChanged = [];
+  let replacements = 0;
+
+  for (const file of files) {
+    const result = fixFile(file, byValue);
+    if (!result.changed) continue;
+
+    filesChanged.push(path.relative(workspaceRoot, file).replace(/\\/g, '/'));
+    replacements += result.replacements;
+  }
+
+  return {
+    filesChanged,
+    replacements,
+  };
+}
+
 function printReport(report) {
   console.log('Nimbus UI Token Governance Report');
   console.log('=================================');
@@ -157,6 +205,7 @@ function printReport(report) {
 }
 
 function runCli() {
+  const fixResult = process.argv.includes('--fix') ? fixAll() : null;
   const report = createReport();
   const outputIndex = process.argv.indexOf('--output');
   const outputPath = outputIndex === -1 ? null : process.argv[outputIndex + 1];
@@ -167,8 +216,14 @@ function runCli() {
   }
 
   if (process.argv.includes('--json')) {
-    console.log(serialized);
+    console.log(fixResult ? JSON.stringify({ ...report, fix: fixResult }, null, 2) : serialized);
   } else {
+    if (fixResult) {
+      console.log(
+        `Applied token fixes: ${fixResult.replacements} replacements in ${fixResult.filesChanged.length} files.`,
+      );
+      console.log('');
+    }
     printReport(report);
   }
 
@@ -183,4 +238,5 @@ if (require.main === module) {
 
 module.exports = {
   createReport,
+  fixAll,
 };
